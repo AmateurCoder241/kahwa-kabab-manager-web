@@ -9,5 +9,35 @@
   "env": {
     "NEXT_PUBLIC_API_URL": "https://kahwa-kabab-server-e85fa91cb51b.herokuapp.com",
     "NEXT_PUBLIC_MANAGER_PASSWORD": "your-secure-password-here"
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "preview": true,
+      "development": true
+    }
+  },
+  "environments": {
+    "development": {
+      "env": {
+        "NEXT_PUBLIC_API_URL": "http://localhost:5000",
+        "NEXT_PUBLIC_MANAGER_PASSWORD": "dev-password",
+        "NEXT_PUBLIC_ENV": "development"
+      }
+    },
+    "preview": {
+      "env": {
+        "NEXT_PUBLIC_API_URL": "https://kahwa-kabab-server-e85fa91cb51b.herokuapp.com",
+        "NEXT_PUBLIC_MANAGER_PASSWORD": "preview-password",
+        "NEXT_PUBLIC_ENV": "preview"
+      }
+    },
+    "production": {
+      "env": {
+        "NEXT_PUBLIC_API_URL": "https://kahwa-kabab-server-e85fa91cb51b.herokuapp.com",
+        "NEXT_PUBLIC_MANAGER_PASSWORD": "your-secure-password-here",
+        "NEXT_PUBLIC_ENV": "production"
+      }
+    }
   }
 } 
