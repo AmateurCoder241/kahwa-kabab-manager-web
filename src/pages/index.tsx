@@ -38,8 +38,8 @@ export default function ManagerDashboard() {
   const fetchData = async () => {
     try {
       const [menuResponse, ordersResponse] = await Promise.all([
-        axios.get('https://kahwa-kabab-server-e85fa91cb51b.herokuapp.com/api/menu'),
-        axios.get('https://kahwa-kabab-server-e85fa91cb51b.herokuapp.com/api/orders')
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/menu`),
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/orders`)
       ]);
       setMenuItems(menuResponse.data);
       setOrders(ordersResponse.data);
@@ -52,7 +52,7 @@ export default function ManagerDashboard() {
 
   const updateStock = async (itemId: string, newStock: number) => {
     try {
-      await axios.put(`https://kahwa-kabab-server-e85fa91cb51b.herokuapp.com/api/menu/${itemId}`, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/menu/${itemId}`, {
         stock: newStock
       });
       setMenuItems(prevItems =>
@@ -67,7 +67,7 @@ export default function ManagerDashboard() {
 
   const updateOrderStatus = async (orderId: string, newStatus: string) => {
     try {
-      await axios.put(`https://kahwa-kabab-server-e85fa91cb51b.herokuapp.com/api/orders/${orderId}`, {
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/${orderId}`, {
         status: newStatus
       });
       setOrders(prevOrders =>
